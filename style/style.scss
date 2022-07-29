@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&family=Work+Sans:wght@400&display=swap');
+
+@mixin imgLateral {
+    display: flex;
+    align-self: flex-start;
+    padding-top: 10px;
+    height: 200px;
+    @include notebook{
+        height: 250px;
+    }
+}
+@mixin cont-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+@mixin tablet {
+    @media (min-width: 520px) and (max-width: 820px){
+        @content;
+    }
+}
+@mixin notebook {
+    @media (min-width: 821px){
+        @content;
+    }
+}
+
+body{
+    font-family: 'Work Sans', sans-serif;
+    letter-spacing: 0.5px;
+    @include notebook{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 80vw;
+    }
+}
+
+.logo{
+    @include cont-logo;
+    .logo__img{
+        width: 290px;
+    }
+}
+
+#nav-bar{
+    width: 95%;
+    margin: auto;
+}
+.nav-bar{
+    background-color: #231f20 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    .nav-bar__ul{
+        display: flex;
+        padding-inline-start: 0px;
+        margin-bottom: 0px;
+        .nav-bar__ul--item{
+            list-style: none;
+            .nav-bar__ul--item--link{
+                text-decoration: none;
+                color: white;
+                font-size: 0.85em;
+                border-right: solid 1px white;
+                padding: 10px 5px;
+                @include tablet{
+                    font-size: 1.2em;
+                    padding: 10px 15px;
+                }
+                @include notebook{
+                    padding: 10px 25px;
+                    font-size: 1.2em;
+                }
+            }
+        }
+        .nav-bar__ul--item--link.contact{
+            border-right: none;
+        }
+    }
+}
+
+.imgCentral{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include notebook{
+        margin-bottom: 30px;
+    }
+    .imgCentral__img{
+        width: 95%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+#nosotros{
+    display: flex;
+    margin-top: 10px;
+    width: 95%;
+    margin: auto;
+    @include notebook{
+        padding-bottom: 10px;
+    }
+    #nosotros__img{
+        @include imgLateral;
+    }
+    #nosotros__p{
+        padding: 10px;
+        @include notebook{
+            line-height: 1.9em;
+            padding-left: 35px;
+            width: 70%;
+        }
+    }
+}
+#carouselExampleControls{
+    margin-bottom: 20px;
+    @include tablet{
+        display: none;
+    }
+    @include notebook{
+        display: none;
+    }
+}
+.imagenes3{
+    display: none;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    @include tablet{
+        display: flex;
+        margin-bottom: 20px;
+    }
+    @include notebook{
+        display: flex;
+        margin-bottom: 40px;
+    }
+}
+.imagenes3 img{
+    width: 230px;
+    @include notebook{
+        width: 32%;
+    }
+}
+
+.w-100{
+    width: 95% !important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#prod{
+    display: flex;
+    background-color: #231f20;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 95%;
+    margin: auto;
+    #prod__img{
+        @include imgLateral;
+        margin-right: 10px;
+        @include notebook{
+            padding-left: 20px;
+        }
+    }
+    #prod__all{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-top: 10px;
+        @include tablet{
+            flex-direction: row;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include notebook{
+            flex-direction: row;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 20px;
+        }
+        #prod__all--cuidado{
+            width: 100%;
+        }
+        #prod__all--cuidado img{
+            width: 97%;
+            @include tablet{
+                width: 95%;
+            }
+            @include notebook{
+                width: 90%;
+            }
+        }
+        #prod__all--cuidado p{
+            color: white;
+            @include notebook{
+                width: 90%;
+                padding-left: 5px;
+                margin-top: 15px;
+            }
+        }
+    }
+}
+#servicios{
+    display: flex;
+    padding-top: 10px;
+    width: 95%;
+    margin: auto;
+    #servicios__img{
+        @include imgLateral;
+        margin-right: 10px;
+    }
+    #servicios__ul{
+        padding-left: 12px;
+        list-style: disc;
+        @include tablet{
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+        @include notebook{
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            padding-top: 20px;
+            padding-left: 35px;
+            line-height: 2.2em;
+        }
+    }
+    #servicios__ul li{
+        @include tablet{
+            font-size: 1.1rem;
+        }
+        @include notebook{
+            font-size: 1.3rem;
+        }
+    }
+}
+#contacto{
+    display: flex;
+    background-color: #231f20;
+    padding-top: 10px;
+    width: 95%;
+    margin: auto;
+    #contacto__img{
+        @include imgLateral;
+        @include notebook{
+            padding-left: 20px;
+        }
+    }
+    #form{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        width: 100%;
+        @include notebook{
+            width: 80%;
+        }
+        .formgroup1{
+            @include notebook{
+                display: flex;
+                justify-content: flex-end;
+                .formgroup1__a ,.formgroup1__b{
+                    @include notebook{
+                        width: 45%;
+                    }
+                }
+            }
+        }
+        .formgroup2{
+            @include notebook{
+                display: flex;
+                justify-content: flex-end;
+                .formgroup2__a ,.formgroup2__b{
+                    @include notebook{
+                        width: 45%;
+                    }
+                }
+            }
+        }
+        input, textarea{
+            border: none;
+            outline: 0px;
+            border-bottom: 1px solid white;
+            width: 95%;
+            padding-top: 30px;
+            background-color: #231f20;
+            color: white;
+        }
+        textarea{
+            height: 180px;
+            resize: none;
+            @include notebook{
+                width: 90%;
+                height: 100px;
+            }
+        }
+        input::placeholder{
+            color: white;
+        }
+        textarea::placeholder{
+            color: white;
+        }
+        .formgroup{
+            @include notebook{
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 18px;
+            }
+        }
+    }
+}
+
+.buttonSend{
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+    margin-bottom: 15px;
+    .css-button-rounded--black {
+        width: 80px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid white;
+        background: #231f20;
+      }
+      .css-button-rounded--black:hover {
+        background: #fff;
+        color: #231f20;
+      }
+}
+footer{
+    @include notebook{
+        width: 95%;
+        display: flex;
+        margin: auto;
+        margin-top: 30px;
+    }
+}
+.contFooter{
+    @include notebook{
+        display: block;
+        margin-top: 0px;
+    }
+    @include cont-logo;
+    .contFooter__logo{
+        width: 290px;
+    }
+    
+}
+
+
+
+.linkFooter{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    @include notebook{
+        margin-left: 80px;
+        border-left: 1px solid grey;
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    .linkFooter__li{
+        display: flex;
+        justify-content: center;
+        @include notebook{
+            justify-content: left;
+        }
+        .linkFooter__li--a{
+            text-decoration: none;
+            color: grey;
+        }
+    }
+}
+     
+.swal2-styled.swal2-confirm{
+    background-color: #231f20;
+}
